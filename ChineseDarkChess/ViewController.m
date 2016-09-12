@@ -36,10 +36,15 @@
 
 - (void)handlePanRecognier:(UIPanGestureRecognizer *)sender {
   static NSInteger positionBegin;
+    
   CGPoint point = [sender locationInView:sender.view];
+
   if (sender.state == UIGestureRecognizerStateBegan) {
     positionBegin = [self getPositionByPoint:point];
   } else if (sender.state == UIGestureRecognizerStateChanged) {
+      UIImageView *selectedImage = _cdcView.imagesOfBoard[positionBegin];
+      CGRect rect = CGRectMake(point.x-55/2, point.y-55/2, 55/2, 55/2);
+      [selectedImage setFrame:rect];
     // todo: pan animate?
   } else if (sender.state == UIGestureRecognizerStateEnded) {
     NSInteger positionEnd = [self getPositionByPoint:point];
