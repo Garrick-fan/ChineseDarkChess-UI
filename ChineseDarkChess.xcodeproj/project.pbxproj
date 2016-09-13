@@ -17,7 +17,8 @@
 		CCA023211D7B1AD50026E92B /* ChineseDarkChessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023201D7B1AD50026E92B /* ChineseDarkChessUITests.m */; };
 		CCA023351D7B9CC50026E92B /* CDCView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023341D7B9CC50026E92B /* CDCView.m */; };
 		CCA023391D7BEA210026E92B /* CDCBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023381D7BEA210026E92B /* CDCBoard.m */; };
-		CCEA234F1D859BF700A2A2EC /* rules.o in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEA234E1D859BF700A2A2EC /* rules.o */; };
+		CCE904551D8826DB0066C325 /* rule.i386.o in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE904531D8826DB0066C325 /* rule.i386.o */; };
+		CCE904561D8826DB0066C325 /* rule.x86_64.o in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE904541D8826DB0066C325 /* rule.x86_64.o */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +60,8 @@
 		CCA023361D7BD9B40026E92B /* basic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = basic.h; sourceTree = "<group>"; };
 		CCA023371D7BEA210026E92B /* CDCBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCBoard.h; sourceTree = "<group>"; };
 		CCA023381D7BEA210026E92B /* CDCBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCBoard.m; sourceTree = "<group>"; };
-		CCEA234E1D859BF700A2A2EC /* rules.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = rules.o; sourceTree = "<group>"; };
+		CCE904531D8826DB0066C325 /* rule.i386.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = rule.i386.o; sourceTree = "<group>"; };
+		CCE904541D8826DB0066C325 /* rule.x86_64.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = rule.x86_64.o; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCEA234F1D859BF700A2A2EC /* rules.o in Frameworks */,
+				CCE904551D8826DB0066C325 /* rule.i386.o in Frameworks */,
+				CCE904561D8826DB0066C325 /* rule.x86_64.o in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +135,8 @@
 		CCA022FB1D7B1AD50026E92B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCEA234E1D859BF700A2A2EC /* rules.o */,
+				CCE904531D8826DB0066C325 /* rule.i386.o */,
+				CCE904541D8826DB0066C325 /* rule.x86_64.o */,
 				CCA022FC1D7B1AD50026E92B /* main.m */,
 			);
 			name = "Supporting Files";

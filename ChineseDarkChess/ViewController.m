@@ -35,24 +35,27 @@
 }
 
 - (void)handlePanRecognier:(UIPanGestureRecognizer *)sender {
-  static NSInteger positionBegin;
-    
+  static NSInteger positionBegin = INVALIED;
+  static UIImageView *selectedImage;
   CGPoint point = [sender locationInView:sender.view];
 
   if (sender.state == UIGestureRecognizerStateBegan) {
     positionBegin = [self getPositionByPoint:point];
-  } else if (sender.state == UIGestureRecognizerStateChanged) {
-      UIImageView *selectedImage = _cdcView.imagesOfBoard[positionBegin];
-      CGRect rect = CGRectMake(point.x-55/2, point.y-55/2, 55/2, 55/2);
-      [selectedImage setFrame:rect];
-    // todo: pan animate?
-  } else if (sender.state == UIGestureRecognizerStateEnded) {
-    NSInteger positionEnd = [self getPositionByPoint:point];
-    if ([_cdcBoard isValiedMove:positionBegin dst:positionEnd]) {
-      [_cdcBoard move:positionBegin dst:positionEnd];
+    if (positionBegin != INVALIED && ![_cdcBoard isDark:positionBegin]) {
+      selectedImage = _cdcView.imagesOfBoard[positionBegin];
+      [_cdcView changePieceImageToTop:positionBegin];
+    } else
+      positionBegin = INVALIED;
+  } else if (positionBegin != INVALIED) {
+    if (sender.state == UIGestureRecognizerStateChanged) {
+      [_cdcView movePieceImage:selectedImage point:point];
+    } else if (sender.state == UIGestureRecognizerStateEnded) {
+      NSInteger positionEnd = [self getPositionByPoint:point];
+      if ([_cdcBoard isValiedMove:positionBegin dst:positionEnd])
+        [_cdcBoard move:positionBegin dst:positionEnd];
+      [_cdcView setNeedsDisplay];
+      positionBegin = INVALIED;
     }
-    positionBegin = INVALIED;
-    [_cdcView setNeedsDisplay];
   }
 }
 

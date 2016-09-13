@@ -17,4 +17,6 @@
 @property(weak) id<CDCViewDelegate> delegate;
 @property(nonatomic, strong) NSMutableArray<UIImageView *> *imagesOfBoard;
 - (CGRect)getRectWithPoint:(NSUInteger)square;
+- (void)changePieceImageToTop:(NSInteger)position;
+- (void)movePieceImage:(UIImageView *)image point:(CGPoint)point;
 @end

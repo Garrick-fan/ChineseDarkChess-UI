@@ -72,6 +72,17 @@ static CGFloat kWidthOfSquare;
   }
 }
 
+- (void)changePieceImageToTop:(NSInteger)position {
+  [self addSubview:_imagesOfBoard[position]];
+}
+
+- (void)movePieceImage:(UIImageView *)image point:(CGPoint)point {
+  CGRect rect =
+      CGRectMake(point.x - kWidthOfSquare / 2, point.y - kWidthOfSquare / 2,
+                 kWidthOfSquare, kWidthOfSquare);
+  [image setFrame:rect];
+}
+
 - (CGRect)getRectWithPoint:(NSUInteger)square {
   float startX = [self convertToPoint:square % 4];
   float startY = [self convertToPoint:square / 4];
