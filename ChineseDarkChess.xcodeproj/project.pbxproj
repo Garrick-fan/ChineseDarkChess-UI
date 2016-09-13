@@ -17,8 +17,7 @@
 		CCA023211D7B1AD50026E92B /* ChineseDarkChessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023201D7B1AD50026E92B /* ChineseDarkChessUITests.m */; };
 		CCA023351D7B9CC50026E92B /* CDCView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023341D7B9CC50026E92B /* CDCView.m */; };
 		CCA023391D7BEA210026E92B /* CDCBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023381D7BEA210026E92B /* CDCBoard.m */; };
-		CCE904551D8826DB0066C325 /* rule.i386.o in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE904531D8826DB0066C325 /* rule.i386.o */; };
-		CCE904561D8826DB0066C325 /* rule.x86_64.o in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE904541D8826DB0066C325 /* rule.x86_64.o */; };
+		CCAACFDE1D88428600CF833C /* librule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAACFDD1D88428600CF833C /* librule.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +59,7 @@
 		CCA023361D7BD9B40026E92B /* basic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = basic.h; sourceTree = "<group>"; };
 		CCA023371D7BEA210026E92B /* CDCBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCBoard.h; sourceTree = "<group>"; };
 		CCA023381D7BEA210026E92B /* CDCBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCBoard.m; sourceTree = "<group>"; };
-		CCE904531D8826DB0066C325 /* rule.i386.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = rule.i386.o; sourceTree = "<group>"; };
-		CCE904541D8826DB0066C325 /* rule.x86_64.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = rule.x86_64.o; sourceTree = "<group>"; };
+		CCAACFDD1D88428600CF833C /* librule.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librule.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCE904551D8826DB0066C325 /* rule.i386.o in Frameworks */,
-				CCE904561D8826DB0066C325 /* rule.x86_64.o in Frameworks */,
+				CCAACFDE1D88428600CF833C /* librule.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +132,7 @@
 		CCA022FB1D7B1AD50026E92B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCE904531D8826DB0066C325 /* rule.i386.o */,
-				CCE904541D8826DB0066C325 /* rule.x86_64.o */,
+				CCAACFDD1D88428600CF833C /* librule.a */,
 				CCA022FC1D7B1AD50026E92B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -444,6 +440,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ChineseDarkChess/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChineseDarkChess",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.garrick.ChineseDarkChess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -458,6 +458,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ChineseDarkChess/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChineseDarkChess",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.garrick.ChineseDarkChess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
