@@ -11,7 +11,7 @@
 		CC0CB65D1DA5FA520016C915 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0CB65C1DA5FA520016C915 /* BoardView.m */; };
 		CC0CB65F1DA611840016C915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0CB65E1DA611840016C915 /* Assets.xcassets */; };
 		CC0CB6621DA612B90016C915 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0CB6611DA612B90016C915 /* Move.m */; };
-		CC0CB66E1DA62D500016C915 /* libcombined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0CB66D1DA62D500016C915 /* libcombined.a */; };
+		CC0CB66E1DA62D500016C915 /* librules.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0CB66D1DA62D500016C915 /* librules.a */; };
 		CCA022FD1D7B1AD50026E92B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA022FC1D7B1AD50026E92B /* main.m */; };
 		CCA023001D7B1AD50026E92B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA022FF1D7B1AD50026E92B /* AppDelegate.m */; };
 		CCA023031D7B1AD50026E92B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023021D7B1AD50026E92B /* ViewController.m */; };
@@ -47,7 +47,7 @@
 		CC0CB65E1DA611840016C915 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC0CB6601DA612B90016C915 /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
 		CC0CB6611DA612B90016C915 /* Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
-		CC0CB66D1DA62D500016C915 /* libcombined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcombined.a; sourceTree = "<group>"; };
+		CC0CB66D1DA62D500016C915 /* librules.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librules.a; sourceTree = "<group>"; };
 		CCA022F81D7B1AD50026E92B /* ChineseDarkChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChineseDarkChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA022FC1D7B1AD50026E92B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CCA022FE1D7B1AD50026E92B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC0CB66E1DA62D500016C915 /* libcombined.a in Frameworks */,
+				CC0CB66E1DA62D500016C915 /* librules.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +142,7 @@
 		CCA022FB1D7B1AD50026E92B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CC0CB66D1DA62D500016C915 /* libcombined.a */,
+				CC0CB66D1DA62D500016C915 /* librules.a */,
 				CCA022FC1D7B1AD50026E92B /* main.m */,
 			);
 			name = "Supporting Files";
