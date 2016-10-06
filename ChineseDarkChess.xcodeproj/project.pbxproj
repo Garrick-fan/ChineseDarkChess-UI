@@ -233,7 +233,7 @@
 				TargetAttributes = {
 					CCA022F71D7B1AD50026E92B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = GQ8KDH7VFF;
+						DevelopmentTeam = RYKSJB753L;
 					};
 					CCA023101D7B1AD50026E92B = {
 						CreatedOnToolsVersion = 7.3;
@@ -451,14 +451,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = GQ8KDH7VFF;
+				DEVELOPMENT_TEAM = RYKSJB753L;
 				INFOPLIST_FILE = ChineseDarkChess/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChineseDarkChess",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.garrick.ChineseDarkChess;
+				PRODUCT_BUNDLE_IDENTIFIER = com.garrick.ChineseDarkChess1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -470,14 +470,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = GQ8KDH7VFF;
+				DEVELOPMENT_TEAM = RYKSJB753L;
 				INFOPLIST_FILE = ChineseDarkChess/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChineseDarkChess",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.garrick.ChineseDarkChess;
+				PRODUCT_BUNDLE_IDENTIFIER = com.garrick.ChineseDarkChess1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
