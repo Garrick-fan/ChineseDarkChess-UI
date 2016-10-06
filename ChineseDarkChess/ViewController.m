@@ -7,117 +7,153 @@
 //
 
 #import "ViewController.h"
-@interface ViewController () <CDCViewDelegate>
-
+@interface ViewController () <BoardViewDelegate>
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  // Do any additional setup after loading the view, typically from a nib.
-  [self initBoard];
-  [self initCDCView];
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    [self initBoard];
+    [self initCDCView];
+    [self initChessView];
+    [self initTapRecognier];
+    [self initPanRecognier];
+}
 
-  UITapGestureRecognizer *tapRecognizerSingleClick =
-      [[UITapGestureRecognizer alloc]
-          initWithTarget:self
-                  action:@selector(handleSingleClick:)];
-  tapRecognizerSingleClick.numberOfTapsRequired = 1;
-  [self.view addGestureRecognizer:tapRecognizerSingleClick];
+- (void) initTapRecognier{
+    UITapGestureRecognizer *tapRecognizerSingleClick =
+    [[UITapGestureRecognizer alloc]
+     initWithTarget:self
+     action:@selector(handleSingleClick:)];
+    tapRecognizerSingleClick.numberOfTapsRequired = 1;
+    [self.boardView addGestureRecognizer:tapRecognizerSingleClick];
+}
 
-  UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]
-      initWithTarget:self
-              action:@selector(handlePanRecognier:)];
-  [panRecognizer setMinimumNumberOfTouches:1];
-  [panRecognizer setMaximumNumberOfTouches:1];
-  [self.cdcView addGestureRecognizer:panRecognizer];
+- (void) initPanRecognier{
+    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]
+                                             initWithTarget:self
+                                             action:@selector(handlePanRecognier:)];
+    [panRecognizer setMinimumNumberOfTouches:1];
+    [panRecognizer setMaximumNumberOfTouches:1];
+    [self.boardView addGestureRecognizer:panRecognizer];
 }
 
 - (void)handlePanRecognier:(UIPanGestureRecognizer *)sender {
-  static NSInteger positionBegin = INVALIED;
-  static UIImageView *selectedImage;
-  CGPoint point = [sender locationInView:sender.view];
-
-  if (sender.state == UIGestureRecognizerStateBegan) {
-    positionBegin = [self getPositionByPoint:point];
-    if (positionBegin != INVALIED && ![_cdcBoard isDark:positionBegin]) {
-      selectedImage = _cdcView.imagesOfBoard[positionBegin];
-      [_cdcView changePieceImageToTop:positionBegin];
-    } else
-      positionBegin = INVALIED;
-  } else if (positionBegin != INVALIED) {
-    if (sender.state == UIGestureRecognizerStateChanged) {
-      [_cdcView movePieceImage:selectedImage point:point];
-    } else if (sender.state == UIGestureRecognizerStateEnded) {
-      NSInteger positionEnd = [self getPositionByPoint:point];
-      if ([_cdcBoard isValiedMove:positionBegin dst:positionEnd])
-        [_cdcBoard move:positionBegin dst:positionEnd];
-      [_cdcView setNeedsDisplay];
-      positionBegin = INVALIED;
+    static NSInteger positionBegin = INVALIED;
+    static UIImageView *selectedImage;
+    CGPoint point = [sender locationInView:sender.view];
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        positionBegin = [self getValiedPositionByPoint:point];
+        if (positionBegin != INVALIED && ![_cdcBoard isDark:positionBegin]) {
+            selectedImage = _boardView.imagesOfBoard[positionBegin];
+            [_boardView drawImageOfPieceFrame:positionBegin color:FRAME_COLOR_BLK];
+            [_boardView changePieceImageToTop:positionBegin];
+        } else
+            positionBegin = INVALIED;
+    } else if (positionBegin != INVALIED) {
+        if (sender.state == UIGestureRecognizerStateChanged) {
+            [_boardView movePieceImage:selectedImage point:point];
+        } else if (sender.state == UIGestureRecognizerStateEnded) {
+            NSInteger positionEnd = [self getPositionByPoint:point];
+            if ([_cdcBoard isValiedMove:positionBegin dst:positionEnd])
+                [_cdcBoard move:positionBegin dst:positionEnd];
+            [_boardView setNeedsDisplay];
+            positionBegin = INVALIED;
+        }
     }
-  }
 }
 
 - (void)initBoard {
-  _cdcBoard = [[CDCBoard alloc] init];
+    _cdcBoard = [[CDCBoard alloc] init];
 }
 
 - (void)initCDCView {
-  _cdcView = [[CDCView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  _cdcView.delegate = self;
-  [self.view addSubview:_cdcView];
-  [_cdcView setNeedsDisplay];
+    _boardView.delegate = self;
+    _boardView.userInteractionEnabled = YES;
+    [self.view addSubview:_boardView];
+    [_boardView setNeedsDisplay];
+}
+
+- (void)initChessView {
+    _redPieceStatusView.delegate = self;
+    [_redPieceStatusView initWithColor:CLR_R];
+    _blkPieceStatusView.delegate = self;
+    [_blkPieceStatusView initWithColor:CLR_B];
 }
 
 - (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)handleSingleClick:(UITapGestureRecognizer *)sender {
-  static NSInteger src = INVALIED;
-  static NSInteger dst = INVALIED;
-  if (sender.state == UIGestureRecognizerStateRecognized) {
-    CGPoint point = [sender locationInView:sender.view];
-    NSInteger pos = [self getPositionByPoint:point];
-    if (src == INVALIED) {
-      src = pos;
-    } else {
-      dst = pos;
-      if ([_cdcBoard isDark:pos] && src == dst) {
-        [_cdcBoard flip:pos piece:[self randPiece]];
-      } else {
-        if ([_cdcBoard isValiedMove:src dst:dst])
-          [_cdcBoard move:src dst:dst];
-      }
-      src = dst = INVALIED;
+    static NSInteger src = INVALIED;
+    static NSInteger dst = INVALIED;
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        CGPoint point = [sender locationInView:sender.view];
+        NSInteger pos = INVALIED;
+        if (src == INVALIED) {
+            src = pos = [self getValiedPositionByPoint:point];;
+        } else {
+            dst = pos =  [self getPositionByPoint:point];;
+            if ([_cdcBoard isDark:pos] && src == dst) {
+                [_cdcBoard flip:pos piece:[self randPiece]];
+            } else {
+                if ([_cdcBoard isValiedMove:src dst:dst])
+                    [_cdcBoard move:src dst:dst];
+            }
+            src = dst = INVALIED;
+            [_redPieceStatusView setNeedsDisplay];
+            [_blkPieceStatusView setNeedsDisplay];
+            switch(_cdcBoard.color){
+                case CLR_R:
+                    _labelMessage.text = @("Red");
+                    break;
+                case CLR_B:
+                    _labelMessage.text = @("Black");
+                    break;
+                case CLR_U:
+                    _labelMessage.text = @("Unknow");
+                    break;
+
+            } 
+        }
+        [_boardView setNeedsDisplay];
+        if(src != INVALIED) [_boardView drawImageOfPieceFrame:src color:FRAME_COLOR_BLK];
     }
-    [_cdcView setNeedsDisplay];
-  }
 }
 
 - (NSInteger)getPositionByPoint:(CGPoint)point {
-  NSInteger piece = INVALIED;
-  for (piece = 0; piece < BOARD_SIZE; ++piece) {
-    CGRect rect = [_cdcView getRectWithPoint:piece];
-    if (CGRectContainsPoint(rect, point))
-      return piece;
-  }
-  return INVALIED;
+    NSInteger piece = INVALIED;
+    for (piece = 0; piece < BOARD_SIZE; ++piece) {
+        CGRect rect_relative = [_boardView getRectWithPoint:piece];
+        if (CGRectContainsPoint(rect_relative, point))
+            return piece;
+    }
+    return INVALIED;
+}
+
+-(NSInteger)getValiedPositionByPoint:(CGPoint)point{
+    NSInteger position = [self getPositionByPoint:point];
+    if([_cdcBoard isValiedPosition:position]) return position;
+    return INVALIED;
 }
 
 - (NSInteger)randPiece {
-  NSInteger tmp = arc4random() % _cdcBoard.darksum;
-  NSInteger piece = INVALIED;
-  for (piece = 0; piece < PIECE_SIZE; ++piece)
-    if ((tmp -= _cdcBoard.darkcnt[piece]) < 0)
-      break;
-  return piece;
+    NSInteger tmp = arc4random() % _cdcBoard.darksum;
+    NSInteger piece = INVALIED;
+    for (piece = 0; piece < PIECE_SIZE; ++piece)
+        if ((tmp -= _cdcBoard.darkcnt[piece]) < 0)
+            break;
+    return piece;
 }
 
 - (CDCBoard *)viewDidRequestBoard:(UIView *)view {
-  return _cdcBoard;
+    return _cdcBoard;
 }
 
 @end
+
+

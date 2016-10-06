@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "BG.png",
+      "filename" : "piece_bg.png",
       "scale" : "1x"
     },
     {

@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC75B8011D7DB98A00D2DEE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC75B8001D7DB98A00D2DEE8 /* Assets.xcassets */; };
+		CC0CB6571DA5278B0016C915 /* PieceStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0CB6561DA5278B0016C915 /* PieceStatusView.m */; };
+		CC0CB65D1DA5FA520016C915 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0CB65C1DA5FA520016C915 /* BoardView.m */; };
+		CC0CB65F1DA611840016C915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0CB65E1DA611840016C915 /* Assets.xcassets */; };
+		CC0CB6621DA612B90016C915 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0CB6611DA612B90016C915 /* Move.m */; };
+		CC0CB66E1DA62D500016C915 /* libcombined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0CB66D1DA62D500016C915 /* libcombined.a */; };
 		CCA022FD1D7B1AD50026E92B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA022FC1D7B1AD50026E92B /* main.m */; };
 		CCA023001D7B1AD50026E92B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA022FF1D7B1AD50026E92B /* AppDelegate.m */; };
 		CCA023031D7B1AD50026E92B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023021D7B1AD50026E92B /* ViewController.m */; };
@@ -15,9 +19,7 @@
 		CCA0230B1D7B1AD50026E92B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA023091D7B1AD50026E92B /* LaunchScreen.storyboard */; };
 		CCA023161D7B1AD50026E92B /* ChineseDarkChessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023151D7B1AD50026E92B /* ChineseDarkChessTests.m */; };
 		CCA023211D7B1AD50026E92B /* ChineseDarkChessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023201D7B1AD50026E92B /* ChineseDarkChessUITests.m */; };
-		CCA023351D7B9CC50026E92B /* CDCView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023341D7B9CC50026E92B /* CDCView.m */; };
 		CCA023391D7BEA210026E92B /* CDCBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA023381D7BEA210026E92B /* CDCBoard.m */; };
-		CCAACFDE1D88428600CF833C /* librule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAACFDD1D88428600CF833C /* librule.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CC75B8001D7DB98A00D2DEE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC0CB6551DA5278B0016C915 /* PieceStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceStatusView.h; sourceTree = "<group>"; };
+		CC0CB6561DA5278B0016C915 /* PieceStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceStatusView.m; sourceTree = "<group>"; };
+		CC0CB65B1DA5FA520016C915 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
+		CC0CB65C1DA5FA520016C915 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
+		CC0CB65E1DA611840016C915 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC0CB6601DA612B90016C915 /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
+		CC0CB6611DA612B90016C915 /* Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
+		CC0CB66D1DA62D500016C915 /* libcombined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcombined.a; sourceTree = "<group>"; };
 		CCA022F81D7B1AD50026E92B /* ChineseDarkChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChineseDarkChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA022FC1D7B1AD50026E92B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CCA022FE1D7B1AD50026E92B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,12 +63,9 @@
 		CCA0231C1D7B1AD50026E92B /* ChineseDarkChessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChineseDarkChessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA023201D7B1AD50026E92B /* ChineseDarkChessUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChineseDarkChessUITests.m; sourceTree = "<group>"; };
 		CCA023221D7B1AD50026E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCA023331D7B9CC50026E92B /* CDCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCView.h; sourceTree = "<group>"; };
-		CCA023341D7B9CC50026E92B /* CDCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCView.m; sourceTree = "<group>"; };
 		CCA023361D7BD9B40026E92B /* basic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = basic.h; sourceTree = "<group>"; };
 		CCA023371D7BEA210026E92B /* CDCBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCBoard.h; sourceTree = "<group>"; };
 		CCA023381D7BEA210026E92B /* CDCBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCBoard.m; sourceTree = "<group>"; };
-		CCAACFDD1D88428600CF833C /* librule.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librule.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCAACFDE1D88428600CF833C /* librule.a in Frameworks */,
+				CC0CB66E1DA62D500016C915 /* libcombined.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +100,7 @@
 				CCA022FA1D7B1AD50026E92B /* ChineseDarkChess */,
 				CCA0231F1D7B1AD50026E92B /* ChineseDarkChessUITests */,
 				CCA022F91D7B1AD50026E92B /* Products */,
+				CCA023091D7B1AD50026E92B /* LaunchScreen.storyboard */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,21 +117,24 @@
 		CCA022FA1D7B1AD50026E92B /* ChineseDarkChess */ = {
 			isa = PBXGroup;
 			children = (
-				CCA023341D7B9CC50026E92B /* CDCView.m */,
-				CCA023331D7B9CC50026E92B /* CDCView.h */,
-				CC75B8001D7DB98A00D2DEE8 /* Assets.xcassets */,
+				CC0CB6551DA5278B0016C915 /* PieceStatusView.h */,
+				CC0CB6561DA5278B0016C915 /* PieceStatusView.m */,
+				CC0CB65B1DA5FA520016C915 /* BoardView.h */,
+				CC0CB65C1DA5FA520016C915 /* BoardView.m */,
 				CCA022FE1D7B1AD50026E92B /* AppDelegate.h */,
 				CCA022FF1D7B1AD50026E92B /* AppDelegate.m */,
+				CC0CB65E1DA611840016C915 /* Assets.xcassets */,
 				CCA023011D7B1AD50026E92B /* ViewController.h */,
 				CCA023021D7B1AD50026E92B /* ViewController.m */,
 				CCA023041D7B1AD50026E92B /* Main.storyboard */,
-				CCA023091D7B1AD50026E92B /* LaunchScreen.storyboard */,
 				CCA0230C1D7B1AD50026E92B /* Info.plist */,
 				CCA023141D7B1AD50026E92B /* ChineseDarkChessTests */,
 				CCA022FB1D7B1AD50026E92B /* Supporting Files */,
 				CCA023361D7BD9B40026E92B /* basic.h */,
 				CCA023371D7BEA210026E92B /* CDCBoard.h */,
 				CCA023381D7BEA210026E92B /* CDCBoard.m */,
+				CC0CB6601DA612B90016C915 /* Move.h */,
+				CC0CB6611DA612B90016C915 /* Move.m */,
 			);
 			path = ChineseDarkChess;
 			sourceTree = "<group>";
@@ -132,7 +142,7 @@
 		CCA022FB1D7B1AD50026E92B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCAACFDD1D88428600CF833C /* librule.a */,
+				CC0CB66D1DA62D500016C915 /* libcombined.a */,
 				CCA022FC1D7B1AD50026E92B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -223,7 +233,7 @@
 				TargetAttributes = {
 					CCA022F71D7B1AD50026E92B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = RYKSJB753L;
+						DevelopmentTeam = GQ8KDH7VFF;
 					};
 					CCA023101D7B1AD50026E92B = {
 						CreatedOnToolsVersion = 7.3;
@@ -263,8 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCA0230B1D7B1AD50026E92B /* LaunchScreen.storyboard in Resources */,
-				CC75B8011D7DB98A00D2DEE8 /* Assets.xcassets in Resources */,
 				CCA023061D7B1AD50026E92B /* Main.storyboard in Resources */,
+				CC0CB65F1DA611840016C915 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,10 +300,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCA023031D7B1AD50026E92B /* ViewController.m in Sources */,
-				CCA023351D7B9CC50026E92B /* CDCView.m in Sources */,
+				CC0CB6571DA5278B0016C915 /* PieceStatusView.m in Sources */,
+				CC0CB6621DA612B90016C915 /* Move.m in Sources */,
 				CCA023001D7B1AD50026E92B /* AppDelegate.m in Sources */,
 				CCA022FD1D7B1AD50026E92B /* main.m in Sources */,
 				CCA023391D7BEA210026E92B /* CDCBoard.m in Sources */,
+				CC0CB65D1DA5FA520016C915 /* BoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +355,7 @@
 				CCA0230A1D7B1AD50026E92B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ChineseDarkChess;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -438,6 +451,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GQ8KDH7VFF;
 				INFOPLIST_FILE = ChineseDarkChess/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -456,6 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GQ8KDH7VFF;
 				INFOPLIST_FILE = ChineseDarkChess/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
