@@ -23,9 +23,9 @@ typedef PIECE_STATUS PCEStatue;
 @property NSInteger *lifecnt;
 @property NSInteger  darksum;
 @property NSInteger  color;
+@property NSInteger  ply;
 @property PCEStatue *pieceState;
-
-@property(nonatomic, strong) NSMutableArray<NSNumber*> *diedPiece;
+ 
 @property(nonatomic, strong) NSMutableArray<MOVE*> *history;
 
 - (void)move:(NSInteger)src dst:(NSInteger)dst;
@@ -36,6 +36,7 @@ typedef PIECE_STATUS PCEStatue;
 - (NSInteger)genMove:(MOVLST)movelst;
 - (MOVE*)getHistoryTail;
 - (PCEStatue*)getPieceStateByColor:(NSInteger)color;
+- (void)undoHistoryWithPly:(NSInteger)ply;
 @end
 
 

@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet BoardView *boardView;
 @property (weak, nonatomic) IBOutlet PieceStatusView *redPieceStatusView;
 @property (weak, nonatomic) IBOutlet PieceStatusView *blkPieceStatusView;
+@property (weak, nonatomic) IBOutlet UISlider *sliderHistory;
 
 @end

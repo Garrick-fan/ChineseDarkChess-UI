@@ -15,7 +15,9 @@ static CGFloat kWidthOfSquare;
 -(void)awakeFromNib{
     [super awakeFromNib];
     self.imagesOfBoard = [NSMutableArray arrayWithCapacity:BOARD_SIZE];
+    NSLog(@"%@ %f",NSStringFromCGRect(self.frame),  (self.frame.size.width) / 4);
     kWidthOfSquare = (self.frame.size.width) / 4;
+    
     assert(kWidthOfSquare == (self.frame.size.height) / 8);
 }
 

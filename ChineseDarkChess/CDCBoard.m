@@ -8,7 +8,8 @@
 #import "CDCBoard.h"
 
 @implementation CDCBoard
-
+static bool isUndo = false;
+static NSInteger undoPly = 0;
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -17,7 +18,8 @@
         _lifecnt    = (NSInteger *)malloc(sizeof(NSInteger) * PIECE_SIZE);
         _pieceState = (PCEStatue *)malloc(sizeof(PCEStatue*) * BOARD_SIZE);
         _history    = [[NSMutableArray alloc] init];
-        memset(_pieceState, 0, sizeof(NSInteger) * BOARD_SIZE);
+        memset(_pieceState, 0, sizeof(PCEStatue) * BOARD_SIZE);
+        _ply = 0;
     }
     for (NSInteger i = 0; i < BOARD_SIZE; ++i)
         _board[i] = FIN_X;
@@ -29,12 +31,40 @@
     return self;
 }
 
+- (void) initGame {
+    memset(_pieceState, 0, sizeof(PCEStatue) * BOARD_SIZE);
+    for (NSInteger i = 0; i < BOARD_SIZE; ++i)
+        _board[i] = FIN_X;
+    for (NSInteger i = 0; i < PIECE_SIZE; ++i)
+        _lifecnt[i] = _darkcnt[i] = CNT[i];
+    _darksum = BOARD_SIZE;
+    _color = CLR_U;
+    _ply = 0;
+}
+
 - (NSInteger)genMove:(MOVLST)movelst {
     return GenerateMove(_board, _color, movelst);
 }
 
+- (void)undoHistoryWithPly:(NSInteger)ply{
+    isUndo = true;
+    undoPly = _history.count < ply ? _history.count : ply;
+    [self initGame];
+    for(NSInteger i = 0; i < undoPly; ++i){
+        MOVE *move = [self getHistory:i];
+        if(move.src == move.dst)
+            [self flip:move.src piece:move.pce];
+        else
+            [self move:move.src dst:move.dst];
+    }
+}
+
 -(void)insertHistory:(NSInteger)src dst:(NSInteger)dst pce:(NSInteger)pce{
-    MOVE *move = [[MOVE alloc] init:src dst:dst pce:INVALIED];
+    MOVE *move = [[MOVE alloc] init:src dst:dst pce:pce];
+    if(_history.count > _ply && [[_history objectAtIndex:_ply] isEqual:move]){ return;
+    }else if(_history.count > _ply){
+        while(_history.count > _ply) [_history removeLastObject];
+    }
     [_history addObject:move];
 }
 
@@ -70,7 +100,7 @@
             }
         }
     }else{
-        for(int i = 0; i < CNT[dstPce]; ++i  ){
+        for(int i = 0; i < CNT[dstPce]; ++i){
             if(_pieceState[start+i] == PIECE_STATUS_OPEN){
                 _pieceState[start+i] = PIECE_STATUS_DIED;
                 return;
@@ -87,6 +117,7 @@
     _board[dst] = _board[src];
     _board[src] = FIN_E;
     _color ^= 1;
+    ++_ply;
 }
 
 - (void)flip:(NSInteger)position piece:(NSInteger)piece {
@@ -98,6 +129,7 @@
     --_darkcnt[piece];
     --_darksum;
     _color ^= 1;
+    ++_ply;
 }
 
 - (bool)isDark:(NSInteger)position {

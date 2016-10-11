@@ -18,4 +18,15 @@
     }
     return self;
 }
+
+- (BOOL)isEqual:(id)object
+{
+    if ([object isKindOfClass:[Move class]]) {
+        Move *move = object;
+        return self.src == move.src && self.dst == move.dst && self.pce == move.pce;
+    }
+    else {
+        return NO;
+    }
+}
 @end

@@ -20,6 +20,14 @@
     [self initChessView];
     [self initTapRecognier];
     [self initPanRecognier];
+    
+    [_sliderHistory addTarget:self
+                       action:@selector(sliderValueChanged:)
+             forControlEvents:UIControlEventValueChanged];
+
+    [_sliderHistory setMinimumValue:0];
+    [_sliderHistory setMaximumValue:0];
+    //[_sliderHistory setContinuous:false];
 }
 
 - (void) initTapRecognier{
@@ -105,6 +113,8 @@
                     [_cdcBoard move:src dst:dst];
             }
             src = dst = INVALIED;
+            [_sliderHistory setMaximumValue:_cdcBoard.history.count];
+            [_sliderHistory setValue:_cdcBoard.history.count];
             [_redPieceStatusView setNeedsDisplay];
             [_blkPieceStatusView setNeedsDisplay];
             switch(_cdcBoard.color){
@@ -117,7 +127,6 @@
                 case CLR_U:
                     _labelMessage.text = @("Unknow");
                     break;
-
             } 
         }
         [_boardView setNeedsDisplay];
@@ -152,6 +161,14 @@
 
 - (CDCBoard *)viewDidRequestBoard:(UIView *)view {
     return _cdcBoard;
+}
+
+- (IBAction)sliderValueChanged:(UISlider *)sender {
+    _sliderHistory.value = (int)sender.value;
+    [_cdcBoard undoHistoryWithPly:_sliderHistory.value];
+    [_boardView setNeedsDisplay];
+    [_redPieceStatusView setNeedsDisplay];
+    [_blkPieceStatusView setNeedsDisplay];
 }
 
 @end
